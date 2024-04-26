@@ -1,0 +1,13 @@
+/* Estilizando o corpo (body) */
+body {
+    background-image: linear-gradient(1024deg, #BCF0F6 0%, #D9F5F8 50%); /* Gradiente linear de cima para baixo */
+}
+
+/* Estilizando a imagem */
+#imagem-centralizada {
+    position: fixed; /* A imagem permanece fixa na tela */
+    top: 50%; /* Coloca a imagem no centro verticalmente */
+    left: 50%; /* Coloca a imagem no centro horizontalmente */
+    transform: translate(-50%, -50%); /* Centraliza a imagem */
+    opacity: 0.5; /* Opacidade da imagem (valor entre 0 e 1) */
+}
