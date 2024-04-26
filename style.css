@@ -4,7 +4,7 @@ body {
 }
 
 /* Estilizando a imagem */
-#imagem-centralizada {
+#imagem-opaca {
     position: fixed; /* A imagem permanece fixa na tela */
     top: 50%; /* Coloca a imagem no centro verticalmente */
     left: 50%; /* Coloca a imagem no centro horizontalmente */
