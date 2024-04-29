@@ -11,3 +11,7 @@ body {
     transform: translate(-50%, -50%); /* Centraliza a imagem */
     opacity: 0.3; /* Opacidade da imagem (valor entre 0 e 1) */
 }
+
+.load {
+    opacity: 0.3; /* Opacidade da imagem (valor entre 0 e 1) */
+}
