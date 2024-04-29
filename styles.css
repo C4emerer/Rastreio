@@ -23,5 +23,11 @@ body, html {
 }
 
 .load {
+    height: 32px;
+    min-width: 36px;
     opacity: 0.3; /* Opacidade da imagem (valor entre 0 e 1) */
+}
+
+.bordo{
+  color: #74140c;
 }
