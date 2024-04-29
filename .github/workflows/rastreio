@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rastreando..</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="background">
+        <img src="https://awkalab.com.br/wp-content/uploads/2021/06/cropped-cropped-favicon-1.png" alt="Imagem" class="imagem-opaca">
+        
+	<main class="main">
+	<h2 class="bordo">Rastreando.. <img src="imageload.gif" alt="loading" class="load"></h2>
+	<BR>
+        <div id="TRANSP" class="bordo"></div>
+        <div id="OBJETO" class="bordo"></div>
+        <div id="NF" class="bordo"></div>
+        <div id="CNPJ" class="bordo"></div>
+	</main>
+
+    </div>
+
+    <script>
+        //Pega informações da URL exemplo: "http://example.com/page?param1=value1&param2=value2"
+        var searchParams = new URLSearchParams(window.location.search);
+        var TRANSP = searchParams.get('TRANSPORTADORA');
+        var OBJETO = searchParams.get('OBJETO');
+        var NF = searchParams.get('NF');
+        var CNPJ = searchParams.get('CNPJ');
+
+        // Exibir os valores na página HTML
+        document.getElementById('TRANSP').innerText = `TRANSPORTADORA: ${TRANSP}`;
+        document.getElementById('OBJETO').innerText = `OBJETO: ${OBJETO}`;
+        document.getElementById('NF').innerText = `NF: ${NF}`;
+        document.getElementById('CNPJ').innerText = `CNPJ: ${CNPJ}`;
+
+        //Procurar qual Transportadora para gerar o Link de Rastreio
+        switch (TRANSP) {
+            //Primeiro Caso, todas transportadoras que utilizam sistema SSW
+            case "BAUER":
+            case "FARRAPOS":
+            case "TW":
+            case "LOGIC PHARMA":
+            case "TRANSGUSTAVO":
+                var url = "https://ssw.inf.br/2/resultSSW?NR=";
+                var link = document.createElement("a");
+                link.href = url + NF + "&cnpj=" + CNPJ;
+                break;
+            case "CORREIOS":
+                var url = "https://www.sitecorreios.com.br/";
+                var link = document.createElement("a");
+                link.href = url + OBJETO;
+                break;
+            case "BRASPRESS":
+                var url = "https://blue.braspress.com/site/w/tracking/find?cpfCnpj=";
+                var link = document.createElement("a");
+                link.href = url + CNPJ + "&pedidoNf=" + NF;
+                break;
+            case "MINUANO":
+                var url = "https://www.transminuano.com.br/servicos/rastrear/";
+                var link = document.createElement("a");
+                link.href = url + NF + "/" + CNPJ;
+                break;
+            case "PATRUS":
+                var url = "https://portal.patrus.com.br/tracking/cli/e/Tracking/Info.aspx/cli/e/Tracking/Info.aspx?CGC=";
+                var link = document.createElement("a");
+                link.href = url + CNPJ + "&NF=" + NF;
+                break;
+            case "BERTOLINI":
+                var url = "https://www.tbl.com.br/RastreamentoCarga?hcnpj=";
+                var link = document.createElement("a");
+                link.href = url + CNPJ + "&hnota=" + NF;
+                break;
+            default:
+                url = "https://www.AwkaLab.com.br/";
+                alert("Verifique as Informações Digitadas na Planilha!!");
+        }
+
+        //Redireciona Para a Página de Rastreio Automaticamente!
+        //window.location.href = link;
+    </script>
+
+</body>
+
+</html>
