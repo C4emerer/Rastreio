@@ -74,13 +74,23 @@
                 var link = document.createElement("a");
                 link.href = url + CNPJ + "&hnota=" + NF;
                 break;
+            case "CORREIOS SEDEX":
+            case "CORREIOS PAC":
+                var url = "https://www.sitecorreios.com.br/";
+                var link = document.createElement("a");
+                link.href = url + OBJETO;
+		alert("Corrija o nome CORREIOS na Planilha!!");
+                break;
             default:
-                url = "https://www.AwkaLab.com.br/";
+                var url = "https://www.AwkaLab.com.br";
+                var link = document.createElement("a");
+		link.href = url;
                 alert("Verifique as Informações Digitadas na Planilha!!");
         }
 
         //Redireciona Para a Página de Rastreio Automaticamente!
         window.location.href = link;
+
     </script>
 
 </body>
