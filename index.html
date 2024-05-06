@@ -81,6 +81,41 @@
                 link.href = url + OBJETO;
 		alert("Corrija o nome [" + TRANSP + "] para CORREIOS na Planilha!!" +"\n"+ "NF nº " + NF + "!");
                 break;
+            case "TRANSITO BRASIL":
+                var url = "https://ssw.inf.br/2/resultSSW?NR=";
+		var newtab = "https://platform.senior.com.br/logistica-tck/tms/tck-frontend/#/login/signup?tenant=ZEhKaGJuTnBkRzlpY21GemFXdz0%3D";
+                var link = document.createElement("a");
+		window.open(newtab, '_blank');
+                link.href = url + NF + "&cnpj=" + CNPJ;
+                break;
+            case "JAMEF":
+                var url = "https://ssw.inf.br/2/resultSSW?NR=";
+		var newtab = "https://www.jamef.com.br/#acompanhamento-da-carga";
+                var link = document.createElement("a");
+		window.open(newtab, '_blank');
+                link.href = url + NF + "&cnpj=" + CNPJ;
+                break;
+            case "MOVVI":
+                var url = "https://ssw.inf.br/2/resultSSW?NR=";
+		var newtab = "https://movvi.com.br/ferramentas/rastreio";
+                var link = document.createElement("a");
+		window.open(newtab, '_blank');
+                link.href = url + NF + "&cnpj=" + CNPJ;
+                break;
+            case "RODONAVES":
+                var url = "https://ssw.inf.br/2/resultSSW?NR=";
+		var newtab = "https://rodonaves.com.br/rastreio-de-mercadoria";
+                var link = document.createElement("a");
+		window.open(newtab, '_blank');
+                link.href = url + NF + "&cnpj=" + CNPJ;
+                break;
+            case "ALFA":
+                var url = "https://ssw.inf.br/2/resultSSW?NR=";
+		var newtab = "https://alfatransportes.com.br/";
+                var link = document.createElement("a");
+		window.open(newtab, '_blank');
+                link.href = url + NF + "&cnpj=" + CNPJ;
+                break;
             default:
                 var url = "https://www.AwkaLab.com.br";
                 var link = document.createElement("a");
