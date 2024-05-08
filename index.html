@@ -110,14 +110,13 @@
 		window.open(newtab, '_blank');
                 link.href = url + NF + "&cnpj=" + CNPJ;
                 break;
-			case "ALFA":
-    var url = "https://ssw.inf.br/2/resultSSW?NR=";
-    var newtab = "https://alfatransportes.com.br/";
-    var link = document.createElement("a");
-    link.setAttribute("target", "_blank"); // Esta linha adiciona o atributo target="_blank"
-    window.open(newtab, '_blank');
-    link.href = url + NF + "&cnpj=" + CNPJ;
-    break;
+            case "ALFA":
+                var url = "https://ssw.inf.br/2/resultSSW?NR=";
+		var newtab = "https://alfatransportes.com.br/";
+                var link = document.createElement("a");
+		window.open(newtab, '_blank');
+                link.href = url + NF + "&cnpj=" + CNPJ;
+                break;
             default:
                 var url = "https://www.AwkaLab.com.br";
                 var link = document.createElement("a");
