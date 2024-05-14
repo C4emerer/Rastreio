@@ -37,6 +37,13 @@
         document.getElementById('NF').innerText = `NF: ${NF}`;
         document.getElementById('CNPJ').innerText = `CNPJ: ${CNPJ}`;
 
+	    //Informar erro sem NF digitada na Planilha
+	    switch (NF) {
+	case NULL && TRANSP != "CORREIOS":
+		alert("Adicione o número da Nota Fiscal na Planilha!!");
+	default:
+	    }
+	    
         //Procurar qual Transportadora para gerar o Link de Rastreio
         switch (TRANSP) {
             //Primeiro Caso, todas transportadoras que utilizam sistema SSW
