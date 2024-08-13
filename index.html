@@ -51,6 +51,7 @@
             case "TW":
             case "LOGIC PHARMA":
             case "TRANSGUSTAVO":
+	    case "EFITRANS":
                 var url = "https://ssw.inf.br/2/resultSSW?NR=";
                 var link = document.createElement("a");
                 link.href = url + NF + "&cnpj=" + CNPJ;
@@ -65,11 +66,12 @@
                 var link = document.createElement("a");
                 link.href = url + CNPJ + "&pedidoNf=" + NF;
                 break;
-            case "EFITRANS":
-                var url = "https://efitrans.com.br/rastreamento";
-                var link = document.createElement("a");
-                link.href = url;
-                break;
+		//caso o ssw não atenda pode-se usar o link direto para a página da transportadora.
+                //case "EFITRANS":
+                //var url = "https://efitrans.com.br/rastreamento";
+                //var link = document.createElement("a");
+                //link.href = url;
+                // break;
             case "EXPRESSO SÃO MIGUEL":
                 var url = "https://portaldocliente.expressosaomiguel.com.br:2041/track";
                 var link = document.createElement("a");
