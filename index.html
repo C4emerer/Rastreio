@@ -119,11 +119,9 @@
                 link.href = url + "?CNPJ=" + CNPJ + "&NF=" + NF;
                 break;
             case "RODONAVES":
-                var url = "https://ssw.inf.br/2/resultSSW?NR=";
-		var newtab = "https://rodonaves.com.br/rastreio-de-mercadoria";
+                var url = "https://www.rodonaves.com.br/rastreio-de-mercadoria?cpfcnpj=";
                 var link = document.createElement("a");
-		window.open(newtab, '_blank');
-                link.href = url + NF + "&cnpj=" + CNPJ;
+                link.href = url + CNPJ + "&numnf=" + NF + "&rastreiemercadoria=2";
                 break;
             case "ALFA":
                 var url = "https://ssw.inf.br/2/resultSSW?NR=";
