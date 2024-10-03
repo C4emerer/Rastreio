@@ -73,6 +73,7 @@
                 //link.href = url;
                 // break;
             case "EXPRESSO SÃO MIGUEL":
+	    case "SÃO MIGUEL":
                 var url = "https://portaldocliente.expressosaomiguel.com.br:2041/track";
                 var link = document.createElement("a");
                 link.href = url;
@@ -113,6 +114,12 @@
 		window.open(newtab, '_blank');
                 link.href = url + NF + "&cnpj=" + CNPJ;
                 break;
+	    case "PRINCESA DOS CAMPOS":
+	    case "EXPRESSO PRINCESA DOS CAMPOS":
+                var url = "https://tracking.princesadoscampos.com.br/consultatracking";
+                var link = document.createElement("a");
+                link.href = url;
+                break;	
             case "MOVVI":
                 var url = "https://c4emerer.github.io/Rastreio-NF-MOVVI/";
                 var link = document.createElement("a");
