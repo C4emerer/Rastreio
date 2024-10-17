@@ -157,6 +157,26 @@
                 var link = document.createElement("a");
                 link.href = url + NUMERO + "&text=" + MSG;
                 break;
+            case "SEVEX EXPRESS":
+		function saudacao() {
+   		 var hora = new Date().getHours();
+   		 var msg;
+    		if (hora >= 5 && hora < 12) {
+    		    msg = "Bom Dia,";
+  		  } else if (hora >= 12 && hora < 18) {
+    		    msg = "Boa Tarde,";
+  		  } else {
+ 		       msg = "Boa Noite,";
+  		  }
+ 		   return msg;
+		}
+		var SAU = saudacao();
+		var NUMERO = 5194804984;
+		var MSG = SAU + " poderia nos informar o rastreio referente a Nota Fiscal nº *" + NF + "* por gentileza?";
+                var url = "https://api.whatsapp.com/send/?phone=55";
+                var link = document.createElement("a");
+                link.href = url + NUMERO + "&text=" + MSG;
+                break;
             default:
                 var url = "https://www.AwkaLab.com.br";
                 var link = document.createElement("a");
