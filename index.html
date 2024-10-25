@@ -137,6 +137,11 @@
 		window.open(newtab, '_blank');
                 link.href = url + NF + "&cnpj=" + CNPJ;
                 break;
+            case "QUALITY TRANSPORTES":
+                var url = "https://sistema.qualityentregas.com.br/sistema/webService/rastreamentoPedido/track-delivery.php?rastreamento_nf=";
+                var link = document.createElement("a");
+                link.href = url + NF + "&rastreamento_cpfcnpj=" + CNPJ;
+                break;
             case "COYOTE":
 		function saudacao() {
    		 var hora = new Date().getHours();
