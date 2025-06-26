@@ -85,6 +85,11 @@
                 var link = document.createElement("a");
                 link.href = url + NF + "/" + CNPJ;
                 break;
+            case "TROCA":
+                var url = "https://rastreamento.grupotroca.com.br:8443/gtsys/index.php?class=gtsys_search_cte";
+                var link = document.createElement("a");
+                link.href = url + "&remetente=" + CNPJ + "&nf=" + NF + "&cte=";
+                break;
             case "PATRUS":
                 var url = "https://portal.patrus.com.br/tracking/cli/e/Tracking/Info.aspx/cli/e/Tracking/Info.aspx?CGC=";
                 var link = document.createElement("a");
