@@ -95,6 +95,11 @@
                 var link = document.createElement("a");
                 link.href = url + CNPJ + "&NF=" + NF;
                 break;
+            case "AZUL CARGO":
+                var url = "https://www.azulcargoexpress.com.br/Rastreio/Rastreio/Rastrear";
+                var link = document.createElement("a");
+                link.href = url + "?awb=" + OBJETO;
+                break;
             case "BERTOLINI":
                 var url = "https://www.tbl.com.br/RastreamentoCarga?hcnpj=";
                 var link = document.createElement("a");
