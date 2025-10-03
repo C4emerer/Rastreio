@@ -180,6 +180,26 @@
                 var link = document.createElement("a");
                 link.href = url + NUMERO + "&text=" + MSG;
                 break;
+				            case "100 NOCAO EXPRESS":
+		function saudacao() {
+   		 var hora = new Date().getHours();
+   		 var msg;
+    		if (hora >= 5 && hora < 12) {
+    		    msg = "Bom Dia,";
+  		  } else if (hora >= 12 && hora < 18) {
+    		    msg = "Boa Tarde,";
+  		  } else {
+ 		       msg = "Boa Noite,";
+  		  }
+ 		   return msg;
+		}
+		var SAU = saudacao();
+		var NUMERO = 5182055573;
+		var MSG = SAU + " poderia nos informar se foi realizado a entrega referente a Nota Fiscal de Serviço *" + OBJETO + "* por gentileza?";
+                var url = "https://api.whatsapp.com/send/?phone=55";
+                var link = document.createElement("a");
+                link.href = url + NUMERO + "&text=" + MSG;
+                break;
             case "SEVEX EXPRESS":
 		function saudacao() {
    		 var hora = new Date().getHours();
