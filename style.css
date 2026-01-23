@@ -1,205 +1,117 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rastreando..</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-
-<body>
-<div class="background">
-
-    <!-- Logo de fundo da página -->
-    <img src="https://awkalab.com.br/wp-content/uploads/2021/06/cropped-cropped-favicon-1.png"
-         alt="AwkaLab"
-         class="imagem-opaca">
-
-    <!-- Card principal -->
-    <main class="main">
-
-        <h2 class="bordo">
-            Rastreando..
-            <img src="imageload.gif" alt="loading" class="load">
-        </h2>
-
-        <br>
-
-        <div id="TRANSP" class="bordo"></div>
-        <div id="OBJETO" class="bordo"></div>
-        <div id="NF" class="bordo"></div>
-        <div id="CNPJ" class="bordo"></div>
-
-        <!-- Faixa inferior vinho -->
-        <div class="main-footer"></div>
-
-    </main>
-</div>
-
-<script>
-/* =========================
-   FUNÇÃO SAUDAÇÃO
-========================= */
-function saudacao() {
-    const hora = new Date().getHours();
-    if (hora >= 5 && hora < 12) return "Bom Dia,";
-    if (hora >= 12 && hora < 18) return "Boa Tarde,";
-    return "Boa Noite,";
+/* RESET BÁSICO */
+* {
+  box-sizing: border-box;
 }
 
-/* =========================
-   PARÂMETROS DA URL
-========================= */
-const params = new URLSearchParams(window.location.search);
-
-const TRANSP = params.get('TRANSPORTADORA') || "";
-const OBJETO = params.get('OBJETO') || "";
-const NF = params.get('NF') || "";
-const CNPJ = params.get('CNPJ') || "";
-
-/* =========================
-   EXIBE NA TELA
-========================= */
-document.getElementById('TRANSP').innerText = `TRANSPORTADORA: ${TRANSP}`;
-document.getElementById('OBJETO').innerText = `OBJETO: ${OBJETO}`;
-document.getElementById('NF').innerText = `NF: ${NF}`;
-document.getElementById('CNPJ').innerText = `CNPJ: ${CNPJ}`;
-
-/* =========================
-   VALIDAÇÃO
-========================= */
-if (TRANSP !== "CORREIOS" && NF === "") {
-    alert("Adicione o número da Nota Fiscal na Planilha!!");
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #333;
 }
 
-/* =========================
-   GERADOR DE LINK
-========================= */
-let link = document.createElement("a");
-
-switch (TRANSP) {
-
-    case "BAUER":
-    case "FARRAPOS":
-    case "ATIVA":
-    case "TW":
-    case "LOGIC PHARMA":
-    case "LEOMAR":
-    case "TXS TRANSPORTES":
-    case "TRANSGUSTAVO":
-    case "EFITRANS":
-        link.href = `https://ssw.inf.br/2/resultSSW?NR=${NF}&cnpj=${CNPJ}`;
-        break;
-
-    case "CORREIOS":
-        link.href = `https://www.siterastreio.com.br/${OBJETO}`;
-        break;
-
-    case "BRASPRESS":
-        link.href = `https://blue.braspress.com/site/w/tracking/find?cpfCnpj=${CNPJ}&pedidoNf=${NF}`;
-        break;
-
-    case "EXPRESSO SÃO MIGUEL":
-    case "SÃO MIGUEL":
-        link.href = "https://portaldocliente.expressosaomiguel.com.br:2041/track";
-        break;
-
-    case "MINUANO":
-        link.href = `https://www.transminuano.com.br/servicos/rastrear/${NF}/${CNPJ}`;
-        break;
-
-    case "TROCA":
-        link.href = `https://rastreamento.grupotroca.com.br:8443/gtsys/index.php?class=gtsys_search_cte&remetente=${CNPJ}&nf=${NF}`;
-        break;
-
-    case "PATRUS":
-        link.href = `https://portal.patrus.com.br/tracking/cli/e/Tracking/Info.aspx?CGC=${CNPJ}&NF=${NF}`;
-        break;
-
-    case "AZUL CARGO":
-        link.href = `https://www.azulcargoexpress.com.br/Rastreio/Rastrear?awb=${OBJETO}`;
-        break;
-
-    case "BERTOLINI":
-        link.href = `https://www.tbl.com.br/RastreamentoCarga?hcnpj=${CNPJ}&hnota=${NF}`;
-        break;
-
-    case "CORREIOS SEDEX":
-    case "CORREIOS PAC":
-        alert(`Corrija o nome [${TRANSP}] para CORREIOS na Planilha!\nNF nº ${NF}`);
-        link.href = `https://www.siterastreio.com.br/${OBJETO}`;
-        break;
-
-    case "TRANSITO BRASIL":
-        window.open(
-            "https://platform.senior.com.br/logistica-tck/tms/tck-frontend/#/login/signup",
-            "_blank"
-        );
-        link.href = `https://ssw.inf.br/2/resultSSW?NR=${NF}&cnpj=${CNPJ}`;
-        break;
-
-    case "JAMEF":
-        window.open(
-            "https://www.jamef.com.br/#acompanhamento-da-carga",
-            "_blank"
-        );
-        link.href = `https://ssw.inf.br/2/resultSSW?NR=${NF}&cnpj=${CNPJ}`;
-        break;
-
-    case "PRINCESA DOS CAMPOS":
-    case "EXPRESSO PRINCESA DOS CAMPOS":
-        link.href = "https://tracking.princesadoscampos.com.br/consultatracking";
-        break;
-
-    case "MOVVI":
-        link.href = `https://c4emerer.github.io/Rastreio-NF-MOVVI/?CNPJ=${CNPJ}&NF=${NF}`;
-        break;
-
-    case "RODONAVES":
-        link.href = `https://www.rodonaves.com.br/rastreio-de-mercadoria?cpfcnpj=${CNPJ}&numnf=${NF}&rastreiemercadoria=2`;
-        break;
-
-    case "ALFA":
-        window.open("https://alfatransportes.com.br/", "_blank");
-        link.href = `https://ssw.inf.br/2/resultSSW?NR=${NF}&cnpj=${CNPJ}`;
-        break;
-
-    case "LF":
-        link.href = "https://elief.com.br/#footer";
-        break;
-
-    case "QUALITY TRANSPORTES":
-        link.href = `https://sistema.qualityentregas.com.br/sistema/webService/rastreamentoPedido/track-delivery.php?rastreamento_nf=${NF}&rastreamento_cpfcnpj=${CNPJ}`;
-        break;
-
-    case "COYOTE":
-        link.href = `https://api.whatsapp.com/send/?phone=55${51991272788}&text=${encodeURIComponent(
-            saudacao() + " poderia nos informar se foi realizado a entrega referente a Nota Fiscal de Serviço *" + OBJETO + "*?"
-        )}`;
-        break;
-
-    case "100 NOCAO EXPRESS":
-        link.href = `https://api.whatsapp.com/send/?phone=55${5182055573}&text=${encodeURIComponent(
-            saudacao() + " poderia nos informar se foi realizado a entrega referente a Nota Fiscal nº *" + OBJETO + "*?"
-        )}`;
-        break;
-
-    case "SEVEX EXPRESS":
-        link.href = `https://api.whatsapp.com/send/?phone=55${5194804984}&text=${encodeURIComponent(
-            saudacao() + " poderia nos informar o rastreio referente a Nota Fiscal nº *" + NF + "*?"
-        )}`;
-        break;
-
-    default:
-        alert("Verifique as Informações Digitadas na Planilha!!");
-        link.href = "https://www.awkalab.com.br";
+/* CONTAINER GERAL */
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* =========================
-   REDIRECIONA
-========================= */
-window.location.href = link.href;
-</script>
+/* FUNDO DA PÁGINA */
+.background {
+  background: linear-gradient(180deg, #BCF0F6 0%, #D9F5F8 49%);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
 
-</body>
-</html>
+/* IMAGEM DE FUNDO OPACA (SE USAR) */
+.imagem-opaca {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.25;
+  z-index: 0;
+}
+
+/* CARD PRINCIPAL */
+.main {
+  background: #ffffff;
+  width: 100%;
+  max-width: 520px;
+  padding: 32px 36px;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+  position: relative;
+  overflow: hidden;
+  min-height: 360px;
+  z-index: 1;
+}
+
+/* FAIXA SUPERIOR VINHO */
+.main::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10px;
+  width: 100%;
+  background: linear-gradient(90deg, #74140c, #8e1b12);
+  z-index: 2;
+}
+
+/* LOGO GRANDE FANTASMA */
+.main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://awkalab.com.br/wp-content/uploads/2021/06/cropped-cropped-favicon-1.png")
+              no-repeat center;
+  background-size: 320px;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* CONTEÚDO DO CARD */
+.main > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* TEXTO EM DESTAQUE */
+.bordo {
+  color: #74140c;
+  font-weight: bold;
+}
+
+/* LOADING */
+.load {
+  height: 22px;
+  min-width: 24px;
+}
+
+/* FAIXA INFERIOR (RODAPÉ VINHO) */
+.main-footer {
+  height: 42px;
+  background: linear-gradient(90deg, #74140c, #8e1b12);
+  width: 100%;
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+  .main {
+    margin: 0 16px;
+    padding: 28px 24px;
+    min-height: 320px;
+  }
+
+  .main::before {
+    background-size: 220px;
+    opacity: 0.14;
+  }
+}
