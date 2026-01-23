@@ -1,117 +1,114 @@
-/* RESET BÁSICO */
+/* =========================
+   RESET BÁSICO
+========================= */
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: "Segoe UI", Arial, sans-serif;
-  color: #333;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    color: #2c2c2c;
 }
 
-/* CONTAINER GERAL */
-.container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* FUNDO DA PÁGINA */
+/* =========================
+   BACKGROUND
+========================= */
 .background {
-  background: linear-gradient(180deg, #BCF0F6 0%, #D9F5F8 49%);
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #e7f6f8 0%, #cfeef3 100%);
+    position: relative;
+    overflow: hidden;
 }
 
-/* IMAGEM DE FUNDO OPACA (SE USAR) */
+/* =========================
+   LOGO DE FUNDO
+========================= */
 .imagem-opaca {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.25;
-  z-index: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.08; /* mais sutil e profissional */
+    max-width: 320px;
+    z-index: 0;
 }
 
-/* CARD PRINCIPAL */
+/* =========================
+   CONTEÚDO PRINCIPAL
+========================= */
 .main {
-  background: #ffffff;
-  width: 100%;
-  max-width: 520px;
-  padding: 32px 36px;
-  border-radius: 14px;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.15);
-  position: relative;
-  overflow: hidden;
-  min-height: 360px;
-  z-index: 1;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 32px 36px;
+    max-width: 520px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    z-index: 1;
 }
 
-/* FAIXA SUPERIOR VINHO */
-.main::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 10px;
-  width: 100%;
-  background: linear-gradient(90deg, #74140c, #8e1b12);
-  z-index: 2;
+/* =========================
+   TÍTULO
+========================= */
+.main h2 {
+    margin: 0 0 20px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #74140c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
-/* LOGO GRANDE FANTASMA */
-.main::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("https://awkalab.com.br/wp-content/uploads/2021/06/cropped-cropped-favicon-1.png")
-              no-repeat center;
-  background-size: 320px;
-  opacity: 0.12;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* CONTEÚDO DO CARD */
-.main > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* TEXTO EM DESTAQUE */
-.bordo {
-  color: #74140c;
-  font-weight: bold;
-}
-
-/* LOADING */
+/* =========================
+   LOADING
+========================= */
 .load {
-  height: 22px;
-  min-width: 24px;
+    height: 22px;
+    animation: spin 1.2s linear infinite;
 }
 
-/* FAIXA INFERIOR (RODAPÉ VINHO) */
-.main-footer {
-  height: 42px;
-  background: linear-gradient(90deg, #74140c, #8e1b12);
-  width: 100%;
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
 }
 
-/* RESPONSIVO */
-@media (max-width: 600px) {
-  .main {
-    margin: 0 16px;
-    padding: 28px 24px;
-    min-height: 320px;
-  }
+/* =========================
+   DADOS DO RASTREIO
+========================= */
+.bordo {
+    margin: 10px 0;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: #f5fbfc;
+    border-left: 4px solid #74140c;
+    font-weight: 600;
+    font-size: 14px;
+    color: #74140c;
+    text-align: left;
+}
 
-  .main::before {
-    background-size: 220px;
-    opacity: 0.14;
-  }
+/* =========================
+   RESPONSIVO
+========================= */
+@media (max-width: 480px) {
+    .main {
+        padding: 24px 20px;
+    }
+
+    .main h2 {
+        font-size: 20px;
+    }
+
+    .bordo {
+        font-size: 13px;
+    }
 }
