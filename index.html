@@ -9,21 +9,36 @@
 
 <body>
 <div class="background">
-    <img src="https://awkalab.com.br/wp-content/uploads/2021/06/cropped-cropped-favicon-1.png" class="imagem-opaca">
 
+    <!-- Logo de fundo da página -->
+    <img src="https://awkalab.com.br/wp-content/uploads/2021/06/cropped-cropped-favicon-1.png"
+         alt="AwkaLab"
+         class="imagem-opaca">
+
+    <!-- Card principal -->
     <main class="main">
-        <h2 class="bordo">Rastreando.. <img src="imageload.gif" class="load"></h2>
+
+        <h2 class="bordo">
+            Rastreando..
+            <img src="imageload.gif" alt="loading" class="load">
+        </h2>
+
         <br>
+
         <div id="TRANSP" class="bordo"></div>
         <div id="OBJETO" class="bordo"></div>
         <div id="NF" class="bordo"></div>
         <div id="CNPJ" class="bordo"></div>
+
+        <!-- Faixa inferior vinho -->
+        <div class="main-footer"></div>
+
     </main>
 </div>
 
 <script>
 /* =========================
-   FUNÇÕES AUXILIARES
+   FUNÇÃO SAUDAÇÃO
 ========================= */
 function saudacao() {
     const hora = new Date().getHours();
@@ -33,7 +48,7 @@ function saudacao() {
 }
 
 /* =========================
-   PARAMETROS DA URL
+   PARÂMETROS DA URL
 ========================= */
 const params = new URLSearchParams(window.location.search);
 
@@ -43,7 +58,7 @@ const NF = params.get('NF') || "";
 const CNPJ = params.get('CNPJ') || "";
 
 /* =========================
-   EXIBE DADOS NA TELA
+   EXIBE NA TELA
 ========================= */
 document.getElementById('TRANSP').innerText = `TRANSPORTADORA: ${TRANSP}`;
 document.getElementById('OBJETO').innerText = `OBJETO: ${OBJETO}`;
@@ -116,12 +131,18 @@ switch (TRANSP) {
         break;
 
     case "TRANSITO BRASIL":
-        window.open("https://platform.senior.com.br/logistica-tck/tms/tck-frontend/#/login/signup", "_blank");
+        window.open(
+            "https://platform.senior.com.br/logistica-tck/tms/tck-frontend/#/login/signup",
+            "_blank"
+        );
         link.href = `https://ssw.inf.br/2/resultSSW?NR=${NF}&cnpj=${CNPJ}`;
         break;
 
     case "JAMEF":
-        window.open("https://www.jamef.com.br/#acompanhamento-da-carga", "_blank");
+        window.open(
+            "https://www.jamef.com.br/#acompanhamento-da-carga",
+            "_blank"
+        );
         link.href = `https://ssw.inf.br/2/resultSSW?NR=${NF}&cnpj=${CNPJ}`;
         break;
 
@@ -152,15 +173,21 @@ switch (TRANSP) {
         break;
 
     case "COYOTE":
-        link.href = `https://api.whatsapp.com/send/?phone=55${51991272788}&text=${encodeURIComponent(saudacao() + " poderia nos informar se foi realizado a entrega referente a Nota Fiscal de Serviço *" + OBJETO + "*?")}`;
+        link.href = `https://api.whatsapp.com/send/?phone=55${51991272788}&text=${encodeURIComponent(
+            saudacao() + " poderia nos informar se foi realizado a entrega referente a Nota Fiscal de Serviço *" + OBJETO + "*?"
+        )}`;
         break;
 
     case "100 NOCAO EXPRESS":
-        link.href = `https://api.whatsapp.com/send/?phone=55${5182055573}&text=${encodeURIComponent(saudacao() + " poderia nos informar se foi realizado a entrega referente a Nota Fiscal nº *" + OBJETO + "*?")}`;
+        link.href = `https://api.whatsapp.com/send/?phone=55${5182055573}&text=${encodeURIComponent(
+            saudacao() + " poderia nos informar se foi realizado a entrega referente a Nota Fiscal nº *" + OBJETO + "*?"
+        )}`;
         break;
 
     case "SEVEX EXPRESS":
-        link.href = `https://api.whatsapp.com/send/?phone=55${5194804984}&text=${encodeURIComponent(saudacao() + " poderia nos informar o rastreio referente a Nota Fiscal nº *" + NF + "*?")}`;
+        link.href = `https://api.whatsapp.com/send/?phone=55${5194804984}&text=${encodeURIComponent(
+            saudacao() + " poderia nos informar o rastreio referente a Nota Fiscal nº *" + NF + "*?"
+        )}`;
         break;
 
     default:
@@ -173,5 +200,6 @@ switch (TRANSP) {
 ========================= */
 window.location.href = link.href;
 </script>
+
 </body>
 </html>
