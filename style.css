@@ -1,5 +1,5 @@
 /* =========================
-   RESET BÁSICO
+   RESET / BASE
 ========================= */
 * {
     box-sizing: border-box;
@@ -14,7 +14,7 @@ html, body {
 }
 
 /* =========================
-   BACKGROUND
+   BACKGROUND DA PÁGINA
 ========================= */
 .background {
     min-height: 100vh;
@@ -28,29 +28,63 @@ html, body {
 }
 
 /* =========================
-   LOGO DE FUNDO
+   LOGO DE FUNDO DA PÁGINA
 ========================= */
 .imagem-opaca {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0.08; /* mais sutil e profissional */
+    opacity: 0.08;
     max-width: 320px;
     z-index: 0;
+    pointer-events: none;
 }
 
 /* =========================
-   CONTEÚDO PRINCIPAL
+   CARD PRINCIPAL
 ========================= */
 .main {
+    position: relative;
     background: #ffffff;
-    border-radius: 12px;
-    padding: 32px 36px;
+    border-radius: 14px;
+    padding: 36px 36px 30px;
     max-width: 520px;
     width: 90%;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* LOGO "FANTASMA" DENTRO DO CARD */
+.main::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("https://awkalab.com.br/wp-content/uploads/2021/06/cropped-cropped-favicon-1.png")
+                no-repeat center;
+    background-size: 280px;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* FAIXA SUPERIOR (TETO VINHO) */
+.main::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, #74140c, #9b2a1f);
+    z-index: 2;
+}
+
+/* GARANTE QUE O CONTEÚDO FIQUE ACIMA DO FUNDO */
+.main > * {
+    position: relative;
     z-index: 1;
 }
 
@@ -82,7 +116,7 @@ html, body {
 }
 
 /* =========================
-   DADOS DO RASTREIO
+   BLOCOS DE INFORMAÇÃO
 ========================= */
 .bordo {
     margin: 10px 0;
@@ -94,6 +128,16 @@ html, body {
     font-size: 14px;
     color: #74140c;
     text-align: left;
+}
+
+/* =========================
+   RODAPÉ DO CARD
+========================= */
+.main-footer {
+    height: 6px;
+    background: linear-gradient(90deg, #9b2a1f, #74140c);
+    border-radius: 0 0 14px 14px;
+    margin-top: 20px;
 }
 
 /* =========================
@@ -110,5 +154,9 @@ html, body {
 
     .bordo {
         font-size: 13px;
+    }
+
+    .main::before {
+        background-size: 220px;
     }
 }
