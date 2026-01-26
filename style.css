@@ -1,114 +1,77 @@
-/* =========================
-   RESET BÁSICO
-========================= */
-* {
-    box-sizing: border-box;
-}
-
 html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: "Segoe UI", Roboto, Arial, sans-serif;
-    color: #2c2c2c;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* =========================
-   BACKGROUND
-========================= */
+/* Fundo geral */
 .background {
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(180deg, #e7f6f8 0%, #cfeef3 100%);
-    position: relative;
-    overflow: hidden;
+  background: linear-gradient(180deg, #BCF0F6 0%, #D9F5F8 49%);
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-/* =========================
-   LOGO DE FUNDO
-========================= */
-.imagem-opaca {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.08; /* mais sutil e profissional */
-    max-width: 320px;
-    z-index: 0;
+/* Logo grande central e opaco */
+.background::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 520px;
+  height: 520px;
+  transform: translate(-50%, -50%);
+  background: url("https://awkalab.com.br/wp-content/uploads/2021/06/cropped-cropped-favicon-1.png")
+              no-repeat center;
+  background-size: contain;
+  opacity: 0.15;
+  z-index: 1;
 }
 
-/* =========================
-   CONTEÚDO PRINCIPAL
-========================= */
+/* Container */
 .main {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 32px 36px;
-    max-width: 520px;
-    width: 90%;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    z-index: 1;
+  max-width: 520px;
+  width: 100%;
+  padding: 10px;
+  position: relative;
+  z-index: 2;
 }
 
-/* =========================
-   TÍTULO
-========================= */
-.main h2 {
-    margin: 0 0 20px;
-    font-size: 22px;
-    font-weight: 600;
-    color: #74140c;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+/* Card título */
+h2 {
+  margin: 0 0 18px;
+  color: #74140c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.65);
+  padding: 14px;
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* =========================
-   LOADING
-========================= */
+
+
+/* Loading */
 .load {
-    height: 22px;
-    animation: spin 1.2s linear infinite;
+  height: 22px;
+  min-width: 24px;
 }
 
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-}
-
-/* =========================
-   DADOS DO RASTREIO
-========================= */
+/* Cards */
 .bordo {
-    margin: 10px 0;
-    padding: 10px 14px;
-    border-radius: 8px;
-    background: #f5fbfc;
-    border-left: 4px solid #74140c;
-    font-weight: 600;
-    font-size: 14px;
-    color: #74140c;
-    text-align: left;
-}
-
-/* =========================
-   RESPONSIVO
-========================= */
-@media (max-width: 480px) {
-    .main {
-        padding: 24px 20px;
-    }
-
-    .main h2 {
-        font-size: 20px;
-    }
-
-    .bordo {
-        font-size: 13px;
-    }
+  color: #74140c;
+  font-weight: bold;
+  margin-bottom: 14px;
+  background: rgba(255,255,255,0.65);
+  padding: 14px 16px;
+  border-radius: 14px;
+  border-left: 5px solid #74140c;
+  backdrop-filter: blur(2px);
 }
